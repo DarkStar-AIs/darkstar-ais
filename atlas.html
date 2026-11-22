@@ -12,6 +12,10 @@ body::after{content:"";position:fixed;right:-115px;top:10vh;width:min(38vw,470px
 main{position:relative}main::before{content:"";position:absolute;top:380px;left:-75px;width:175px;height:175px;border-radius:50%;z-index:-1;pointer-events:none;background:radial-gradient(circle at 28% 26%,#c89a92,#8e4c70 37%,#25152e 75%);box-shadow:inset -18px -17px 27px #090515,0 0 48px #ac5e9755;opacity:.75}
 .card,.panel,.notice{backdrop-filter:blur(8px)}
 @media(max-width:720px){body::after{right:-110px;top:14vh;opacity:.45}main::before{opacity:.38}}
+
+/* Photographic nebula background, with dark overlay for accessible text */
+body::before{background-image:linear-gradient(90deg,rgba(2,4,14,.77),rgba(2,4,14,.58) 55%,rgba(2,4,14,.72)),url("https://cdn.esawebb.org/archives/images/screen/pillarsofcreation_composite.jpg");background-size:cover;background-position:center center;background-repeat:no-repeat;opacity:.88}
+body::after{box-shadow:inset -38px -30px 58px #010414,0 0 90px #2d65b044,0 0 4px #8dc6ff77}
 </style></head>
 <body><header><div class="wrap"><nav><a class="brand" href="/">✦ DARKSTAR <span>AIs</span></a><a href="/">← Back to all assistants</a></nav></div></header>
 <main><div class="wrap hero"><div class="eyebrow">Darkstar desktop assistant</div><h1>Meet <span>ATLAS.</span></h1><p class="lead">A futuristic Windows AI companion with a voice interface, local AI conversations, web research, music options, and selected desktop controls.</p><div class="notice" role="status"><strong>Phase One now available</strong><p>ATLAS v1.0 — Phase One is now available as a Windows installer. This is an early release; some capabilities require additional setup and may still be improved.</p></div><a class="button" href="https://github.com/DarkStar-AIs/darkstar-ais/releases/download/v1.0.0/ATLAS-Setup-Windows.exe" aria-label="Download ATLAS Windows installer from official GitHub release">Download ATLAS for Windows (free)</a><p class="muted">ATLAS v1.0 — Phase One · Windows installer · 23.1 MB · Pre-release. Local AI may require Ollama and a separate model download. This installer is not digitally signed.</p></div>
