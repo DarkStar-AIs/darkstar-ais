@@ -6,6 +6,7 @@ import urllib.request
 from pathlib import Path
 
 WEBHOOK = os.environ.get("DISCORD_WEBHOOK_URL", "").strip()
+RELEASE_WEBHOOK = os.environ.get("DISCORD_RELEASE_WEBHOOK_URL", "").strip()
 EVENT = os.environ.get("GITHUB_EVENT_NAME", "")
 REPOSITORY = os.environ.get("GITHUB_REPOSITORY", "DarkStar-AIs/darkstar-ais")
 SITE = "https://darkstar-ai.pages.dev"
@@ -38,6 +39,10 @@ if EVENT == "push":
     title = "🤖 ATLAS Update" if atlas else "🌌 Darkstar AI Website Update"
     description = f"{summary}\n\n[Visit Darkstar AI]({SITE})"
     link = event.get("compare") or f"https://github.com/{REPOSITORY}/commits/main"
+elif EVENT == "workflow_dispatch":
+    title = "🧪 Darkstar AI Updates — Test Successful"
+    description = f"The automatic announcement system is connected and ready. Future website changes and published GitHub releases will be announced here.\\n\\n[Visit Darkstar AI]({SITE})"
+    link = SITE
 elif EVENT == "release":
     release = event.get("release", {})
     if event.get("action") != "published":
@@ -49,6 +54,8 @@ elif EVENT == "release":
 else:
     print("Unsupported event")
     sys.exit(0)
+if EVENT == "release" and RELEASE_WEBHOOK:
+    WEBHOOK = RELEASE_WEBHOOK
 payload = {
     "username": "Darkstar AI Updates",
     "allowed_mentions": {"parse": []},
