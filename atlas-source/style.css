@@ -1,0 +1,228 @@
+:root{color-scheme:dark;--cyan:#23ddff;--panel:rgba(1,16,31,.72);--edge:rgba(42,224,255,.84)}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;font-family:Segoe UI,Arial,sans-serif;background:#010a14;color:#e9faff;overflow:hidden}.stage{position:relative;width:100vw;height:100vh;min-height:600px;background:linear-gradient(90deg,rgba(0,8,20,.17),transparent 50%,rgba(0,8,20,.16)),url('assets/command-room.png') center center/100% 100% no-repeat;overflow:hidden}.brand{position:absolute;top:2%;left:5%;width:23%;text-align:center;text-shadow:0 0 12px #3cf0ff;z-index:2}.brand .mark{font-size:32px;line-height:24px}.brand strong{display:block;font-size:clamp(21px,2.5vw,43px);letter-spacing:.23em}.brand small{display:block;font-size:clamp(7px,.7vw,12px);letter-spacing:.12em}.avatar-zone{position:absolute;left:1.8%;top:15%;width:27%;height:76%;pointer-events:none;z-index:3;filter:drop-shadow(0 0 9px #008bdf);animation:avatarFloat 5s ease-in-out infinite}.avatar-aura{position:absolute;inset:9% 8% 5%;background:radial-gradient(ellipse,rgba(0,171,255,.21),transparent 66%);filter:blur(12px)}.avatar-person{position:absolute;inset:0 0 10%;transform-origin:50% 85%;animation:humanIdle 7s ease-in-out infinite}.avatar-person img{position:absolute;width:100%;height:100%;object-fit:fill;opacity:.94;mix-blend-mode:screen;filter:saturate(1.5) contrast(1.12)}.avatar-person:after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(to bottom,transparent 0,transparent 5px,rgba(26,207,255,.08) 6px);mix-blend-mode:screen}.arm{position:absolute;width:15%;height:29%;bottom:23%;border:2px solid rgba(65,221,255,.35);border-top:0;border-radius:30% 30% 40% 40%;opacity:0;transform-origin:top center;filter:drop-shadow(0 0 8px #28dfff)}.arm-left{left:14%;transform:rotate(20deg)}.arm-right{right:12%;transform:rotate(-18deg)}.avatar-zone.speaking .arm-left{opacity:.55;animation:gestureLeft 2.1s ease-in-out infinite}.avatar-zone.speaking .arm-right{opacity:.6;animation:gestureRight 2.7s ease-in-out infinite}.avatar-zone.speaking .avatar-person{animation:speakingPosture 2.8s ease-in-out infinite}.avatar-zone.listening .avatar-person{transform:rotate(-2deg) translateY(3px)}.talk-light{position:absolute;left:48%;top:21%;width:8%;height:3%;border-radius:50%;background:rgba(86,225,255,.25);opacity:0;box-shadow:0 0 12px #2de9ff}.speaking .talk-light{opacity:.9;animation:mouthGlow .18s ease-in-out infinite alternate}.face-expression{position:absolute;left:30%;top:12%;width:40%;height:10%;opacity:0}.speaking .face-expression{animation:expression 3s ease-in-out infinite}.projector{position:absolute;bottom:3%;left:10%;width:80%;height:10%;border:4px solid #14cfff;border-radius:50%;box-shadow:0 0 19px #00cfff,inset 0 0 16px #00dfff;transform:perspective(250px) rotateX(50deg)}.projector span{position:absolute;inset:13%;border:2px solid #36e9ff;border-radius:50%;animation:projectorPulse 2.2s infinite}.projector span+span{inset:30%;animation-delay:.5s}.avatar-label{position:absolute;bottom:0;width:100%;text-align:center;font-size:11px;letter-spacing:.23em;color:#a4f6ff;text-shadow:0 0 9px #2af1ff}.conversation{position:absolute;top:8%;left:29%;width:57%;height:61%;border:1px solid var(--edge);background:linear-gradient(135deg,rgba(0,14,30,.8),rgba(0,24,44,.61));box-shadow:0 0 17px #009ac088,inset 0 0 25px #003c5977;clip-path:polygon(2% 0,100% 0,100% 97%,98% 100%,0 100%,0 5%);z-index:4;display:flex;flex-direction:column;backdrop-filter:blur(3px)}.conversation header{height:45px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;padding:0 24px;border-bottom:1px solid #20d8ff;background:rgba(3,48,73,.75);font-size:13px;font-weight:700;letter-spacing:.08em}.status{font-size:10px;color:#ffd18a}.status.online{color:#68ffd6}.messages{overflow-y:auto;flex:1;padding:15px 25px 24px;scrollbar-color:#12bbdd transparent;scrollbar-width:thin}.message{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid rgba(36,207,244,.23);animation:appear .25s ease-out}.message .badge{height:32px;width:32px;flex-shrink:0;border:1px solid #1dd7ff;border-radius:50%;display:grid;place-items:center;color:#1ae7ff}.message .content{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.5;font-size:14px}.message .by{font-size:12px;color:#52edff;font-weight:700;margin-bottom:4px}.message.user .by{color:#d2e8ff}.bottom{position:absolute;left:29%;right:1%;bottom:9%;height:15%;display:flex;align-items:end;gap:2%;z-index:5}.composer{height:68px;display:flex;flex:1;align-items:center;background:rgba(0,19,39,.88);border:2px solid #2be5ff;border-radius:40px;box-shadow:0 0 17px #00cfff,inset 0 0 12px #0874a4;min-width:230px}.composer input{flex:1;min-width:0;border:0;outline:0;background:transparent;color:white;font-size:16px;padding:0 10px}.composer input::placeholder{color:#b3d3ec}.composer button{border:0;background:transparent;color:#4be8ff;font-size:28px;cursor:pointer;padding:12px 18px}.composer button:hover{color:white;text-shadow:0 0 14px #fff}.quick{width:35%;min-width:280px;background:rgba(0,19,37,.9);border:1px solid #1fdfff;padding:10px;box-shadow:0 0 10px #08cfff}.quicktitle{font-size:13px;letter-spacing:.08em;padding:0 6px 7px}.quickbuttons{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}.quickbuttons button{background:rgba(0,25,47,.85);color:#16e7ff;border:1px solid #149ed2;min-height:65px;font-size:25px;cursor:pointer}.quickbuttons button:hover{background:#12526d}.quickbuttons small{display:block;color:#eafaff;font-size:10px}.controls{position:absolute;right:2%;top:2%;display:flex;gap:8px;z-index:6}.controls button,.dialog button{background:#073148;color:#aff8ff;border:1px solid #19b9d6;padding:9px 13px;cursor:pointer}.controls button:hover,.dialog button:hover{background:#146a83}.toast{position:absolute;bottom:3%;left:30%;color:#8ef8ff;font-size:12px;text-shadow:0 0 7px #00e6ff;z-index:7}.dialog{position:absolute;inset:0;background:#000b;z-index:20;display:grid;place-items:center}.dialog[hidden]{display:none}.dialog-box{width:min(550px,90vw);max-height:80vh;overflow:auto;background:#041c31;border:2px solid #31dfff;box-shadow:0 0 40px #00bfff88;padding:28px}.dialog-box h2{margin:0 0 20px}.dialog-box .close{float:right}.dialog-box button{margin:4px}.dialog-box input{background:#092d42;color:white;padding:12px;width:75%;border:1px solid #29dfff}.dialog-box p{line-height:1.5;color:#c1e4ed}@keyframes avatarFloat{50%{transform:translateY(-7px)}}@keyframes humanIdle{25%{transform:rotate(.7deg)}75%{transform:rotate(-.7deg)}}@keyframes speakingPosture{20%{transform:rotate(1deg) translateY(-3px)}55%{transform:rotate(-1.3deg)}85%{transform:rotate(.7deg) translateY(2px)}}@keyframes gestureLeft{0%,100%{transform:rotate(20deg)}35%{transform:rotate(-19deg) translateY(-12px)}65%{transform:rotate(-6deg)}}@keyframes gestureRight{0%,100%{transform:rotate(-18deg)}40%{transform:rotate(22deg) translateY(-20px)}70%{transform:rotate(5deg)}}@keyframes mouthGlow{to{transform:scaleY(.3);opacity:.3}}@keyframes expression{50%{opacity:.45}}@keyframes projectorPulse{50%{box-shadow:0 0 18px #19f3ff}}@keyframes appear{from{opacity:0;transform:translateY(8px)}}@media(max-width:900px){.avatar-zone{left:-3%;width:29%;top:23%;height:57%}.conversation{left:26%;width:72%;height:57%}.bottom{left:26%;bottom:8%;right:2%;height:18%;flex-direction:column;align-items:stretch}.composer{min-height:55px;width:100%}.quick{width:100%;min-width:0}.quickbuttons button{min-height:40px;font-size:16px}.brand{width:28%}.controls{top:1%;right:1%}.controls button{font-size:10px;padding:5px}}
+
+/* Real-time rendered articulated 3D avatar. No portrait or speech lines. */
+#hologram3d{position:absolute;inset:0;width:100%;height:100%;display:block;filter:drop-shadow(0 0 8px #20d5ff);z-index:2}
+.avatar-zone{filter:none}
+.avatar-aura{z-index:0}
+.avatar-note{position:absolute;bottom:-17px;width:100%;text-align:center;color:#65bed4;font:9px Consolas,monospace;letter-spacing:.12em}
+.avatar-zone .projector{z-index:3}
+.avatar-zone .avatar-label{z-index:4}
+
+/* Human-looking original character portrait replaces the rejected primitive mannequin.
+   This is an interim 2D hologram, NOT a rigged 3D actor. */
+#hologram3d{display:none!important}
+.human-avatar{position:absolute;inset:0 0 5%;overflow:hidden;transform-origin:50% 70%;animation:holoBreath 5s ease-in-out infinite}
+.human-avatar img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 16px #19ccff) saturate(1.18);opacity:.98}
+.holo-scan{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 5px,rgba(28,194,255,.07) 6px);mix-blend-mode:screen;animation:scanDrift 7s linear infinite}
+.avatar-zone.speaking .human-avatar{animation:talkBreath 1.5s ease-in-out infinite}
+.avatar-zone.listening .human-avatar{transform:rotate(-1.2deg) translateY(2px)}
+.avatar-zone.thinking .human-avatar{filter:hue-rotate(14deg)}
+.avatar-zone .avatar-note{bottom:-16px}
+@keyframes holoBreath{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-5px) scale(1.006)}}
+@keyframes talkBreath{0%,100%{transform:translateY(0) rotate(0)}33%{transform:translateY(-4px) rotate(.55deg)}67%{transform:translateY(-2px) rotate(-.55deg)}}
+@keyframes scanDrift{to{background-position:0 80px}}
+
+.spoken-words{position:absolute;bottom:4%;left:4%;right:4%;max-height:55px;overflow:hidden;background:rgba(0,14,28,.78);border:1px solid #37dfff;border-radius:7px;color:#e5fbff;text-align:center;padding:7px;font-size:12px;line-height:1.4;z-index:6;box-shadow:0 0 14px #00bfff55}
+
+/* New user-provided background; the old character and platform are removed. */
+.stage{background-image:url('assets/command-room.png');background-position:center center;background-size:100% 100%}
+.brand,.avatar-zone,.avatar-aura,.projector,.human-avatar,.avatar-label,.avatar-note,.spoken-words{display:none!important}
+.conversation{left:7%;top:16%;width:66%;height:57%;background:linear-gradient(135deg,rgba(0,13,30,.75),rgba(0,25,44,.52));backdrop-filter:blur(2px)}
+.bottom{left:7%;right:2%;bottom:9%;}
+.controls{top:2%;right:2%}
+.toast{left:8%}
+@media(max-width:900px){.conversation{left:3%;width:94%;top:15%;height:56%}.bottom{left:3%;right:3%;bottom:7%}}
+
+
+/* ATLAS minimal-overlay revision: text floats directly over the approved image.
+   Keep controls functional while removing framed text containers. */
+.conversation{
+  left:7%;top:16%;width:69%;height:56%;
+  border:0!important;box-shadow:none!important;
+  background:transparent!important;clip-path:none!important;
+  backdrop-filter:none!important;
+}
+.conversation header{
+  background:transparent!important;border:0!important;
+  padding:0 8px 9px;text-shadow:0 2px 10px #001321,0 0 8px #001321;
+}
+.messages{padding:8px 10px 16px;}
+.message{border:0!important;padding:8px 0;gap:10px;
+  text-shadow:0 1px 5px #00101e,0 2px 12px #00101e;}
+.message .badge{border:0!important;background:transparent!important;
+  border-radius:0!important;width:24px;height:24px;}
+.message .content{font-size:15px;line-height:1.52;text-shadow:
+  0 1px 4px #00101e,0 2px 9px #00101e,0 0 14px #00101e;}
+.message .by{text-shadow:0 1px 6px #00101e,0 0 12px #00101e;}
+.composer{background:transparent!important;border:0!important;border-radius:0!important;
+  box-shadow:none!important;border-bottom:1px solid rgba(51,221,255,.65)!important;}
+.composer input{background:transparent!important;text-shadow:0 2px 8px #00101e;}
+.composer button{background:transparent!important;box-shadow:none!important;}
+.quick{background:transparent!important;border:0!important;box-shadow:none!important;padding:6px;}
+.quicktitle{text-shadow:0 1px 8px #00101e;}
+.quickbuttons button{background:transparent!important;border:0!important;
+  text-shadow:0 1px 8px #00101e;box-shadow:none!important;}
+.quickbuttons button:hover{background:rgba(4,36,58,.35)!important;}
+.controls button{background:transparent!important;border:0!important;
+  text-shadow:0 1px 7px #00101e;}
+.controls button:hover{background:rgba(4,36,58,.35)!important;}
+@media(max-width:900px){.conversation{left:3%;width:94%;top:15%;height:56%}}
+
+/* Requested update: rounded frames ONLY for input and Quick Commands. */
+.composer{
+  background:rgba(2,19,35,.72)!important;
+  border:2px solid rgba(44,223,255,.92)!important;
+  border-radius:38px!important;
+  box-shadow:0 0 14px rgba(0,204,255,.46),inset 0 0 12px rgba(0,123,184,.2)!important;
+  padding:0 8px;
+  overflow:hidden;
+}
+.quick{
+  background:rgba(2,19,35,.76)!important;
+  border:1.5px solid rgba(44,223,255,.9)!important;
+  border-radius:20px!important;
+  box-shadow:0 0 13px rgba(0,204,255,.35),inset 0 0 12px rgba(0,123,184,.15)!important;
+  padding:12px!important;
+}
+
+/* Removed ATLAS / CONVERSATION heading */
+.conversation > header{display:none!important}
+.messages{height:100%;max-height:100%}
+
+/* Rounded frames for the four top-right controls only. */
+.controls{gap:10px;align-items:center;}
+.controls button{
+  background:rgba(2,24,43,.78)!important;
+  border:1.5px solid rgba(52,223,255,.88)!important;
+  border-radius:16px!important;
+  padding:10px 15px!important;
+  color:#c4faff!important;
+  box-shadow:0 0 10px rgba(0,202,255,.24),inset 0 0 8px rgba(0,149,212,.13)!important;
+  white-space:nowrap;
+  transition:background .18s ease,box-shadow .18s ease;
+}
+.controls button:hover{
+  background:rgba(10,74,103,.88)!important;
+  box-shadow:0 0 16px rgba(20,223,255,.53)!important;
+}
+@media(max-width:900px){.controls{gap:5px}.controls button{padding:6px 8px!important;border-radius:12px!important;font-size:10px}}
+
+/* Compact drop-down: the four existing controls retain their handlers. */
+.controls{top:2%;right:2%;display:block;z-index:12}
+.control-menu-toggle{border-radius:18px!important}
+.control-dropdown[hidden],.earth-panel[hidden]{display:none!important}
+.control-dropdown{position:absolute;right:0;top:calc(100% + 8px);width:206px;padding:10px;
+ background:rgba(1,19,35,.96);border:1.5px solid #27dfff;border-radius:18px;
+ box-shadow:0 0 22px #00c8ff66;display:flex;flex-direction:column;gap:8px}
+.control-dropdown button{width:100%;text-align:left;border-radius:12px!important}
+.map-launcher{position:absolute;top:2%;right:calc(2% + 198px);z-index:11;
+ background:rgba(2,24,43,.84);border:1.5px solid #34dfff;border-radius:16px;
+ box-shadow:0 0 10px #00caff55;color:#c4faff;padding:10px 15px;font-weight:600;cursor:pointer}
+.map-launcher:hover{background:#0a526c}
+.earth-panel{position:absolute;z-index:10;right:2%;top:9%;bottom:19%;width:min(610px,76vw);
+ display:flex;flex-direction:column;overflow:hidden;border:1.5px solid #3de8ff;border-radius:20px;
+ background:rgba(2,19,35,.97);box-shadow:0 0 30px #00b8ff77;color:#e9faff}
+.map-head{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;
+ background:#07344c;border-bottom:1px solid #1585a4;letter-spacing:.1em}
+.map-head button,.map-form button{background:#0b5069;border:1px solid #27cfff;border-radius:11px;color:white;cursor:pointer;padding:9px 12px}
+.map-form{padding:12px 16px;display:flex;flex-direction:column;gap:7px}
+.map-form label{font-size:12px;color:#9defff}
+.map-destination,.map-options{display:flex;gap:9px;align-items:center}
+.map-destination input{flex:1;min-width:0;background:#092d44;color:white;border:1px solid #2d93a8;border-radius:10px;padding:11px}
+.map-options{font-size:12px;color:#b4d8e2}
+.earth-map{height:38%;min-height:145px;background:#08243a;z-index:0}
+.route-summary{padding:12px 16px;font-size:13px;background:#073044;line-height:1.5}
+.route-steps{flex:1;min-height:60px;overflow:auto;margin:0;padding:10px 22px 12px 37px;line-height:1.5;font-size:13px}
+.route-steps li{padding:5px 0;border-bottom:1px solid #1b475a}
+.map-credit{font-size:10px;color:#9ab7c5;padding:8px 12px;border-top:1px solid #1a526b}
+@media(max-width:900px){
+ .map-launcher{top:calc(2% + 45px);right:2%;padding:7px 10px;font-size:10px}
+ .earth-panel{left:2%;right:2%;width:96%;top:14%;bottom:23%}
+ .controls{right:2%}
+ .control-dropdown{width:180px}
+}
+
+/* Four distinct rounded Quick Command tiles, matching ATLAS cyan controls. */
+.quickbuttons{gap:9px!important;}
+.quickbuttons button{
+  background:rgba(2,25,46,.78)!important;
+  border:1.5px solid rgba(42,226,255,.92)!important;
+  border-radius:15px!important;
+  box-shadow:0 0 10px rgba(0,202,255,.32),inset 0 0 9px rgba(0,153,212,.12)!important;
+  padding:10px 3px!important;
+  min-height:72px!important;
+  transition:background .2s ease,box-shadow .2s ease,transform .2s ease;
+}
+.quickbuttons button:hover,.quickbuttons button:focus-visible{
+  background:rgba(8,72,101,.9)!important;
+  box-shadow:0 0 18px rgba(27,227,255,.65)!important;
+  transform:translateY(-1px);
+}
+@media(max-width:900px){.quickbuttons{gap:5px!important}.quickbuttons button{min-height:52px!important;border-radius:11px!important;padding:5px 2px!important}}
+
+/* AI-generated improvement proposals, always reviewed by the owner */
+.improvements-launcher{position:absolute;top:2%;right:calc(2% + 330px);z-index:11;background:rgba(2,24,43,.86);border:1.5px solid #34dfff;border-radius:16px;box-shadow:0 0 10px #00caff55;color:#c4faff;padding:10px 15px;font-weight:600;cursor:pointer}
+.improvements-panel[hidden]{display:none!important}
+.improvements-panel{position:absolute;z-index:15;right:2%;top:9%;bottom:15%;width:min(680px,91vw);display:flex;flex-direction:column;overflow:hidden;border:1.5px solid #3de8ff;border-radius:20px;background:rgba(2,19,35,.97);box-shadow:0 0 30px #00b8ff77;color:#e9faff}
+.improvement-head{display:flex;justify-content:space-between;align-items:center;background:#07344c;border-bottom:1px solid #1585a4;padding:14px 18px;letter-spacing:.04em}
+.improvement-head button,.improvement-prompt button,.proposal-actions button{background:#0b5069;border:1px solid #27cfff;border-radius:12px;color:white;cursor:pointer;padding:10px}
+.improvement-notice{margin:12px 16px;color:#a8d4e0;font-size:13px;line-height:1.5}
+.improvement-prompt{display:flex;gap:9px;margin:0 16px 12px}
+.improvement-prompt input{flex:1;min-width:0;background:#092d44;color:white;border:1px solid #2d93a8;border-radius:10px;padding:11px}
+#improvementStatus{min-height:20px;margin:0 16px 8px;color:#9defff;font-size:12px}
+.improvement-list{overflow:auto;padding:0 16px 16px;flex:1}
+.proposal-card{padding:15px;border:1px solid #247e96;border-radius:14px;background:rgba(6,46,65,.8);margin-bottom:12px}
+.proposal-card h3{margin:0 0 6px;font-size:16px;color:#d6ffff}
+.proposal-meta{font-size:11px;color:#84cfe1;text-transform:uppercase;letter-spacing:.06em}
+.proposal-card p{font-size:13px;line-height:1.5;margin:9px 0;white-space:pre-wrap}
+.proposal-actions{display:flex;gap:8px;margin-top:12px}
+.proposal-actions .reject{border-color:#b88792;color:#ffe3e7}
+.proposal-status{font-size:12px;font-weight:bold;color:#92f3de}
+@media(max-width:900px){.improvements-launcher{top:calc(2% + 87px);right:2%;font-size:10px;padding:7px 10px}.improvements-panel{left:2%;right:2%;width:96%;top:14%;bottom:20%}}
+
+.screen-launcher,.apps-launcher{position:absolute;top:2%;z-index:11;background:rgba(1,23,41,.87);border:1px solid #29dcff;border-radius:16px;color:#d3faff;padding:10px 12px;cursor:pointer;box-shadow:0 0 9px #00d6ff55}
+.screen-launcher{right:calc(2% + 525px)}.apps-launcher{right:calc(2% + 425px)}
+.aux-panel[hidden]{display:none!important}.aux-panel{position:absolute;z-index:15;right:2%;top:10%;bottom:18%;width:min(530px,82vw);overflow:auto;background:rgba(2,20,38,.97);border:1px solid #38dfff;border-radius:20px;box-shadow:0 0 26px #04c6ff66;padding:15px;color:#e7faff;display:flex;flex-direction:column;gap:12px}
+.aux-panel header{display:flex;justify-content:space-between;align-items:center}.aux-panel button{background:#0a435c;border:1px solid #35d8ed;color:#e7faff;border-radius:11px;padding:10px;cursor:pointer}
+.aux-panel input{background:#092b41;border:1px solid #2c90a6;color:#e7faff;border-radius:10px;padding:12px}.aux-actions{display:flex;gap:10px}.aux-panel video{max-height:38%;width:100%;object-fit:contain;background:#071521;border-radius:9px}.apps-list{overflow:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.apps-list button{text-align:left;overflow:hidden;text-overflow:ellipsis}.patch-list pre{white-space:pre-wrap;word-break:break-word;max-height:250px;overflow:auto;background:#051624;padding:10px;border-radius:9px;color:#c6faff}.patch-list article{padding:12px;border-top:1px solid #288fa9}.patch-list button{background:#0b5069;color:white;border:1px solid #36dfff;border-radius:12px;padding:9px;cursor:pointer}
+@media(max-width:1000px){.screen-launcher{top:calc(2% + 85px);right:2%}.apps-launcher{top:calc(2% + 85px);right:120px}.aux-panel{left:2%;right:2%;width:auto}}
+
+/* Unified, responsive ATLAS top toolbar. Overrides legacy absolute offsets. */
+.atlas-toolbar{position:absolute;top:10px;right:14px;left:auto;z-index:18;display:flex;flex-direction:row;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:9px;max-width:calc(100% - 28px)}
+.atlas-toolbar .controls,.atlas-toolbar .screen-launcher,.atlas-toolbar .apps-launcher,.atlas-toolbar .improvements-launcher,.atlas-toolbar .map-launcher{position:relative!important;top:auto!important;right:auto!important;left:auto!important;bottom:auto!important;margin:0!important;flex:none}
+.atlas-toolbar .controls{display:block!important;z-index:20}
+.atlas-toolbar .screen-launcher,.atlas-toolbar .apps-launcher,.atlas-toolbar .improvements-launcher,.atlas-toolbar .map-launcher,.atlas-toolbar .control-menu-toggle{height:39px!important;min-height:39px;display:inline-flex;align-items:center;justify-content:center;gap:5px;white-space:nowrap;font-family:Segoe UI,Arial,sans-serif;font-size:11px!important;font-weight:700;letter-spacing:.035em;padding:0 13px!important;border:1px solid #26d7f4!important;border-radius:13px!important;background:rgba(0,20,37,.88)!important;color:#d5f9ff!important;box-shadow:0 0 10px rgba(0,202,255,.25)!important;cursor:pointer}
+.atlas-toolbar button:hover{background:rgba(8,75,98,.94)!important;box-shadow:0 0 14px rgba(0,212,255,.6)!important}
+.atlas-toolbar .control-dropdown{top:calc(100% + 8px);right:0;z-index:21}
+.atlas-toolbar .control-dropdown button{height:auto!important;min-height:35px;text-align:left;justify-content:flex-start}
+@media(max-width:980px){.atlas-toolbar{gap:6px;top:7px;right:8px;max-width:calc(100% - 16px)}.atlas-toolbar .screen-launcher,.atlas-toolbar .apps-launcher,.atlas-toolbar .improvements-launcher,.atlas-toolbar .map-launcher,.atlas-toolbar .control-menu-toggle{height:34px!important;min-height:34px;font-size:10px!important;padding:0 9px!important}}
+
+.control-dropdown{max-height:min(70vh,520px);overflow:auto}
+.control-dropdown select,.control-dropdown input[type=range]{width:100%;box-sizing:border-box}
+.control-dropdown select{background:#092b41;color:#e9ffff;border:1px solid #30a8c5;border-radius:9px;padding:8px}
+.control-dropdown .voice-setting{font-size:12px;color:#b6e9f5;padding:3px 4px}
+.control-dropdown input[type=range]{accent-color:#42e4ff}
+
+#micStatus{font-size:11px;color:#a6eefe;line-height:1.4;padding:5px 8px;border-left:2px solid #36dfff;overflow-wrap:anywhere}
+
+#musicPanel{max-height:70vh;overflow-y:auto}#musicList{display:flex;flex-direction:column;gap:5px;max-height:180px;overflow:auto}#musicList button{text-align:left;padding:8px;border:1px solid rgba(80,225,255,.3);border-radius:8px;background:rgba(0,20,40,.65);color:#c9f9ff;cursor:pointer}#musicNow{padding:10px;color:#b5f9ff}#musicSearch{width:100%;box-sizing:border-box;margin:8px 0}
+
+.voice-diagnostics{font-size:11px;color:#b8e9f5;padding:6px 9px;line-height:1.4;overflow-wrap:anywhere}
+
+/* Dialog close button always visible, even while research results scroll. */
+.dialog-box{position:relative;overscroll-behavior:contain}
+.dialog-box .close{position:sticky;top:0;float:right;z-index:50;min-width:44px;min-height:44px;font-size:20px;margin:-8px -8px 8px 12px;background:#07516c;border:1px solid #32e6ff}
+.dialog-box .close:hover,.dialog-box .close:focus-visible{background:#127d9f;outline:2px solid #8efaff}
+
+/* YouTube embed remains in the Music panel; collapsed mode preserves playback. */
+.youtube-embed-panel{margin:12px 0;padding:10px;border:1px solid #32dfff;border-radius:9px;background:#061b2bd9}
+.youtube-embed-header{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.youtube-embed-header strong{flex:1}
+#youtubeVideoUrl{width:100%;box-sizing:border-box;margin:5px 0 8px;padding:9px;color:white;background:#071b2d;border:1px solid #32dfff;border-radius:6px}
+#youtubePlayerSlot{margin-top:8px}
+#youtubePlayerHint{font-size:12px;line-height:1.5;margin-top:8px}
+
+/* Always-visible, compact wake-word reminder above the chat input. */
+.atlas-wake-reminder{display:flex;align-items:center;justify-content:center;gap:7px;margin:0 auto 7px;padding:5px 13px;width:max-content;max-width:calc(100% - 18px);border:1px solid rgba(0,210,255,.48);border-radius:999px;background:rgba(0,15,32,.85);color:#c3eaf7;font:600 11px/1.4 Arial,sans-serif;letter-spacing:.055em;text-shadow:0 1px 2px #001;pointer-events:none;box-shadow:0 0 12px rgba(0,210,255,.12)}
+.atlas-wake-reminder strong{color:#fff;font-weight:800}.atlas-wake-dot{display:inline-block;width:7px;height:7px;flex:0 0 7px;border-radius:50%;background:#12dafa;box-shadow:0 0 7px #12dafa}
+@media(max-width:600px){.atlas-wake-reminder{font-size:10px;letter-spacing:0;padding:5px 9px}}

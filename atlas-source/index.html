@@ -1,0 +1,92 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ATLAS | Darkstar AIs</title><link rel="stylesheet" href="style.css"></head><body>
+<div class="stage">
+ <section class="conversation" aria-label="ATLAS conversation"><div class="messages" id="messages" role="log" aria-live="polite"></div></section>
+ <div class="bottom"><div class="atlas-wake-reminder" role="note" aria-label="ATLAS voice wake word"><span class="atlas-wake-dot" aria-hidden="true"></span> TO SPEAK TO ATLAS, SAY <strong>“ATLAS”</strong> FIRST</div><div class="composer"><button id="mic" title="Use microphone" aria-label="Use microphone">🎙</button><input id="message" autocomplete="off" placeholder="Ask ATLAS anything…" aria-label="Message ATLAS"><button id="send" title="Send message" aria-label="Send message">➤</button></div><div class="quick"><div class="quicktitle">ϟ &nbsp; QUICK COMMANDS</div><div class="quickbuttons"><button data-action="apps">▦<small>Open App</small></button><button data-action="browser">◎<small>Search Web</small></button><button data-action="system">⚙<small>System Info</small></button><button data-action="task">▷<small>Run Task</small></button></div></div></div>
+ <nav class="atlas-toolbar" aria-label="ATLAS features">
+ <button id="musicToggle" class="screen-launcher">♫ MUSIC</button>
+ <button id="researchToggle" class="screen-launcher">⌕ RESEARCH</button>
+ <button id="documentsToggle" class="screen-launcher">▤ DOCUMENTS</button>
+ <button id="screenToggle" class="screen-launcher">▣ SCREEN</button>
+ <div class="controls">
+<button id="controlMenuToggle" class="control-menu-toggle" aria-expanded="false" aria-controls="controlDropdown">⚙ ATLAS CONTROLS ▾</button>
+<div id="controlDropdown" class="control-dropdown" hidden>
+<button id="voiceToggle" hidden>🔊 VOICE ON</button><button id="wakeToggle" hidden>◉ WAKE WORD ACTIVE (MUTE)</button><div id="micStatus" hidden></div><label class="voice-setting" for="voiceSelect" hidden>ATLAS voice</label><select id="voiceSelect" hidden><option value="teyla-inspired">Teyla-inspired</option></select><label class="voice-setting" for="voiceRate" hidden>Speaking pace <output id="voiceRateValue">0.88×</output></label><input type="range" id="voiceRate" hidden min="0.7" max="1.15" step="0.05" value="0.88"><button id="voiceTest" hidden>TEST VOICE</button><div id="voiceDiagnostics" hidden></div><button id="stopVoice" hidden title="Stop ATLAS speaking">■ STOP SPEECH</button>
+<button id="memoryButton">◇ MEMORY</button>
+<button id="clearButton">CLEAR CHAT</button>
+</div></div>
+<button id="improvementsToggle" class="improvements-launcher" aria-expanded="false" aria-controls="improvementsPanel">✧ IMPROVEMENTS</button>
+<button id="mapToggle" class="map-launcher" aria-expanded="false" aria-controls="earthPanel">◎ EARTH MAP</button>
+ </nav>
+<section id="musicPanel" class="aux-panel" hidden aria-label="Music player">
+<header><strong>♫ ATLAS MUSIC</strong><button id="closeMusic" aria-label="Close music player">✕</button></header>
+<p>ATLAS automatically finds songs in your Windows Music folder and ATLAS Music folder. You can also add other songs or folders. Say “ATLAS, play [song name]”.</p>
+<div class="aux-actions"><button id="refreshMusic">REFRESH LIBRARY</button><button id="addMusic">ADD SONGS</button><button id="addMusicFolder">ADD FOLDER</button><button id="musicPrev">◀◀</button><button id="musicPlayPause">▶ / ❚❚</button><button id="musicNext">▶▶</button></div>
+<input id="musicFiles" type="file" accept="audio/*,.mp3,.m4a,.wav,.ogg,.flac,.aac" multiple hidden>
+<input id="musicFolder" type="file" accept="audio/*,.mp3,.m4a,.wav,.ogg,.flac,.aac" webkitdirectory multiple hidden>
+<div id="musicNow" aria-live="polite">No music selected</div>
+<audio id="musicAudio" controls preload="metadata" style="width:100%"></audio>
+<div class="music-services" style="margin:10px 0;display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+ <label for="musicProvider">Online music service</label>
+ <select id="musicProvider" style="background:#092b43;color:#fff;border:1px solid #32dfff;padding:8px;border-radius:6px">
+ <option value="spotify">Spotify</option>
+ <option value="youtube">YouTube Music</option>
+ <option value="apple">Apple Music</option>
+ 
+ </select>
+ <button id="musicFindOnline" type="button">PLAY SONG</button>
+ </div>
+ <div id="musicOnlineHint" style="font-size:12px;opacity:.85;margin-bottom:8px">Spotify Free: paste a Spotify song link to load the official player inside ATLAS. To find a song by name, use SEARCH SPOTIFY. Full-song availability is controlled by Spotify.</div>
+<input id="musicSearch" placeholder="Song name, or paste a Spotify track link" aria-label="Search songs">
+<div id="spotifyEmbedPanel" class="youtube-embed-panel" hidden>
+ <div class="youtube-embed-header"><strong>♫ SPOTIFY · INSIDE ATLAS</strong><button id="spotifyStop" type="button">CLOSE PLAYER</button></div>
+ <div id="spotifyEmbedSlot"></div>
+ <div id="spotifyEmbedHint">Spotify controls which songs can play in full on a Free account. Sign in within the Spotify player if prompted.</div>
+</div>
+<div id="youtubeEmbedPanel" class="youtube-embed-panel" hidden>
+ <div class="youtube-embed-header"><strong>▶ YOUTUBE PLAYER · INSIDE ATLAS</strong><button id="youtubeCollapse" type="button">COLLAPSE</button><button id="youtubeStop" type="button">STOP</button></div>
+ <div id="youtubeEmbedBody">
+  <div id="youtubeMatches" class="apps-list"></div>
+  <div id="youtubePlayerSlot"></div>
+ </div>
+ <div id="youtubePlayerHint">Search by song name above. YouTube may require you to press Play or may block some music videos.</div>
+</div>
+<div id="musicList" class="apps-list"></div>
+<small>Music in your Windows Music folder or ATLAS-Darkstar/Music is available automatically each time ATLAS starts. Other manually selected files need selecting again after restarting. Spotify playback uses Spotify’s official embedded player; availability and login are controlled by Spotify.</small>
+</section>
+<section id="screenPanel" class="aux-panel" hidden>
+<header><strong>▣ SCREEN VISION</strong><button id="closeScreen">✕</button></header>
+<p>Share a screen or window only when you choose. ATLAS receives individual frames only when you press Analyze. Stop sharing whenever you want.</p>
+<div class="aux-actions"><button id="startShare">SHARE SCREEN / WINDOW</button><button id="stopShare">STOP SHARING</button></div>
+<video id="screenPreview" autoplay muted playsinline></video>
+<input id="screenQuestion" placeholder="What should ATLAS look for on my screen?" value="Describe what is visible on my screen.">
+<button id="analyzeScreen">ANALYZE CURRENT FRAME</button><div id="screenAnswer" aria-live="polite"></div>
+<small>Requires Ollama vision model (default: llama3.2-vision). No automatic recording or continuous uploads.</small>
+</section>
+<section id="appsPanel" class="aux-panel" hidden>
+<header><strong>▦ INSTALLED APPLICATIONS</strong><button id="closeApps">✕</button></header>
+<p>Find installed Windows applications. Click one to launch it. Only applications discovered on your PC are eligible.</p>
+<input id="appSearch" placeholder="Search installed apps"><div id="appsList" class="apps-list"></div>
+<div id="appStatus" aria-live="polite"></div>
+</section>
+<section id="earthPanel" class="earth-panel" hidden aria-label="Earth map and directions">
+ <header class="map-head"><strong>◉ EARTH NAVIGATION</strong><button id="closeMap" aria-label="Close map">✕</button></header>
+ <div class="map-form">
+  <label for="destination">Destination</label>
+  <div class="map-destination"><input id="destination" placeholder="Town, address or landmark" autocomplete="street-address"><button id="getDirections">GET ROUTE</button></div>
+  <div class="map-options"><button id="locateMe">⌖ USE MY LOCATION</button><span id="locationStatus">Location not shared</span></div>
+ </div>
+ <div id="earthMap" class="earth-map" aria-label="Interactive OpenStreetMap"></div>
+ <div class="route-summary" id="routeSummary" aria-live="polite">Allow location access, enter a destination, then select Get Route.</div>
+ <ol class="route-steps" id="routeSteps"></ol>
+ <footer class="map-credit">Map © OpenStreetMap contributors · Routing © OSRM · Search © OpenStreetMap contributors</footer>
+</section>
+ <section id="improvementsPanel" class="improvements-panel" hidden aria-label="ATLAS improvement proposals">
+  <header class="improvement-head"><strong>✧ ATLAS / IMPROVEMENT PROPOSALS</strong><button id="closeImprovements" aria-label="Close improvements">✕</button></header>
+  <p class="improvement-notice">ATLAS can suggest code changes and new features. Nothing changes without your approval. After you approve an idea, ATLAS can draft an exact code change for your review. Applying that patch requires a second explicit approval and creates a backup.</p>
+  <div class="improvement-prompt"><input id="improvementFocus" placeholder="Optional: What should ATLAS improve?" maxlength="500"><button id="generateImprovement">ASK ATLAS TO SUGGEST</button></div>
+  <div id="improvementStatus" role="status"></div>
+  <div id="improvementList" class="improvement-list"></div><div id="patchList" class="patch-list"></div>
+ </section>
+ <div class="toast" id="toast" role="status"></div>
+ <div class="dialog" id="dialog" hidden><div class="dialog-box"><button class="close" id="closeDialog">✕</button><h2 id="dialogTitle"></h2><div id="dialogContent"></div></div></div>
+</div><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="app.js?v=music-repair-2"></script></body></html>
