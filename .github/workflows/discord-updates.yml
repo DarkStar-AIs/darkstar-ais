@@ -4,6 +4,7 @@ on:
     branches: [main]
   release:
     types: [published]
+  workflow_dispatch:
 permissions:
   contents: read
 jobs:
@@ -14,6 +15,7 @@ jobs:
       - name: Post updates to Discord
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_RELEASE_WEBHOOK_URL: ${{ secrets.DISCORD_RELEASE_WEBHOOK_URL }}
           GITHUB_EVENT_NAME: ${{ github.event_name }}
           GITHUB_EVENT_PATH: ${{ github.event_path }}
           GITHUB_REPOSITORY: ${{ github.repository }}
